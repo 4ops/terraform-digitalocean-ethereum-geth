@@ -41,7 +41,7 @@ data "template_file" "docker_compose_config" {
           - '--testnet'
 %{ endif ~}
 %{ if length(var.extra_args) > 0 ~}
-          ${indent(6, join("\n", formatlist("- '%s'", var.extra_args)))}
+          ${indent(10, join("\n", formatlist("- '%s'", var.extra_args)))}
 %{ endif ~}
 
 %{ if var.ethereum_exporter ~}
