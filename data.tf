@@ -7,6 +7,8 @@ data "template_file" "docker_compose_config" {
       instance:
         image: ${var.image}
         restart: always
+        stop_grace_period: 2m
+        stop_signal: SIGINT
         volumes:
           - './data:/data'
         ports:
