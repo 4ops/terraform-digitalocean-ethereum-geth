@@ -12,6 +12,9 @@ data "template_file" "docker_compose_config" {
         volumes:
           - './data:/data'
         ports:
+%{ if var.metrics ~}
+          - '6060:6060'
+%{ endif ~}
           - '8545:8545'
           - '8546:8546'
           - '30303:30303'
@@ -41,6 +44,10 @@ data "template_file" "docker_compose_config" {
           - '--wsorigins=${var.wsorigins}'
 %{ if var.testnet ~}
           - '--testnet'
+%{ endif ~}
+%{ if var.metrics ~}
+          - '--metrics'
+          - '--pprof'
 %{ endif ~}
 %{ if length(var.extra_args) > 0 ~}
           ${indent(10, join("\n", formatlist("- '%s'", var.extra_args)))}

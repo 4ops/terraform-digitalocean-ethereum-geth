@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.3]
+
+- Add new option 'metrics' for exposing metrics via pprof
+
 ## [1.0.2]
 
 - Fix stop signal for geth container for graceful shutdown

@@ -326,6 +326,18 @@ variable "cache_gc" {
   DESCRIPTION
 }
 
+variable "metrics" {
+  type = bool
+
+  default = false
+
+  description = <<-DESCRIPTION
+    Enable metrics and pprof http.
+    Example of prometheus metrics endpoint: http://127.0.0.1:6060/debug/metrics/prometheus
+    See: https://blog.ethereum.org/2019/07/10/geth-v1-9-0/#metrics-collection
+  DESCRIPTION
+}
+
 # Exporter configuration
 
 variable "ethereum_exporter" {
